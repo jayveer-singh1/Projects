@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left"><img src="Logo.jpg" alt="Logo" id="logo"></div>
+
+            <div class="right">
+                <button id="load-products">Get all Products</button>
+                <button id="show-product-btn">Get one Products</button>
+                <input type="search" id="search-input" placeholder="Search for products">
+                <button id="search-btn">Search</button>
+            </div>
+        </nav>
+    </header>
+    <h1>-:Products:-</h1>
+    <div id="product-list" class="one"></div>
+    <div id="product-container"></div>
+    <div id="results"></div>
+
+    <button id="toggleButton">Toggle Category List</button>
+    <ul id="category-list" style="display: none;">
+    </ul>
+
+
+
+
+
+    <script>
+        // Start First Button
+        document.getElementById('load-products').addEventListener('click', function () {
+            const productList = document.getElementById('product-list');
+
+            if (productList.innerHTML === '') {
+                fetch('https://dummyjson.com/products')
+                    .then(res => res.json())
+                    .then(data => {
+                        const products = data.products;
+                        products.forEach(product => {
+                            const productItem = document.createElement('div');
+                            productItem.className = 'product-item';
+                            productItem.innerHTML = `<div class="boxes">
+            <h2>${product.title}</h2>
+            <p>${product.description}</p>
+            <p>Price: $${product.price}</p>
+            <img src="${product.thumbnail}" alt="${product.title}">
+            </div>
+          `;
+                            productList.appendChild(productItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+            } else {
+                productList.innerHTML = '';
+            }
+        });
+        // End First Button
+        //Start Second Button
+        document.getElementById('show-product-btn').addEventListener('click', () => {
+            const container = document.getElementById('product-container');
+            if (container.innerHTML) {
+                container.innerHTML = '';
+                return;
+            }
+
+            fetch('https://dummyjson.com/products/1')
+                .then(response => response.json())
+                .then(product => {
+                    container.innerHTML = `
+        <div class="product-container boxes">
+          <h2>${product.title}</h2>
+          <p>${product.description}</p>
+          <p>Price: $${product.price}</p>
+          <img src="${product.thumbnail}" alt="${product.title}">
+        </div>
+      `;
+                })
+                .catch(console.error);
+        });
+        //End Second Button
+        //Start Third Button
+        document.getElementById('search-btn').addEventListener('click', () => {
+            const searchInput = document.getElementById('search-input').value;
+            const resultsContainer = document.getElementById('results');
+
+            if (!searchInput) {
+                resultsContainer.innerHTML = '<p>Please enter a search term.</p>';
+                return;
+            }
+
+            resultsContainer.innerHTML = '';
+
+            fetch(`https://dummyjson.com/products/search?q=${encodeURIComponent(searchInput)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.products.length === 0) {
+                        resultsContainer.innerHTML = '<p>No results found.</p>';
+                        return;
+                    }
+
+                    data.products.forEach(product => {
+                        resultsContainer.innerHTML += `
+          <div class="product boxes">
+            <h2>${product.title}</h2>
+            <p>${product.description}</p>
+            <p>Price: $${product.price}</p>
+            <img src="${product.thumbnail}" alt="${product.title}">
+          </div>
+        `;
+                    });
+                })
+                .catch(error => {
+                    resultsContainer.innerHTML = '<p>Error fetching data. Please try again later.</p>';
+                    console.error('Error fetching data:', error);
+                });
+        });
+
+        //End Third Button
+        //Star fourth Button
+        const toggleButton = document.getElementById('toggleButton');
+        const categoryList = document.getElementById('category-list');
+        let isListVisible = false;
+
+        toggleButton.addEventListener('click', () => {
+            if (isListVisible) {
+                categoryList.style.display = 'none';
+                isListVisible = false;
+            } else {
+                fetch('https://dummyjson.com/products/category-list')
+                    .then(res => res.json())
+                    .then(categories => {
+                        // Clear existing categories
+                        categoryList.innerHTML = '';
+
+                        categories.forEach(category => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = category;
+                            categoryList.appendChild(listItem);
+                        });
+
+                        categoryList.style.display = 'block';
+                        isListVisible = true;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching category list:', error);
+                    });
+            }
+        });
+        //End fourth Button
+
+    </script>
+</body>
+
+</html>

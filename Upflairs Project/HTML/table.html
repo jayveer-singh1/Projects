@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+
+<body>
+    <table border="1" width="300" height="200" cellpadding="10">
+        <tr>
+            <th>column 1</th>
+            <th>column 2</th>
+            <th>column 3</th>
+        </tr>
+        <tr>
+            <td rowspan="2">row 1, column 1</td>
+            <td>row 1, column 2</td>
+            <td>row 1, column 3</td>
+        </tr>
+        <tr>
+            <td>row 1, column 2</td>
+            <td>row 1, column 3</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center">row3</td>
+        </tr>
+    </table>
+    <hr>
+    <h2>A test table with merged cell</h2>
+    <table border="1" height="200" width="300" cellpadding="10px">
+        <tr>
+            <th rowspan="2">ram</th>
+            <th colspan="2">Average</th>
+            <th rowspan="2">Red Eyes</th>
+        </tr>
+        <tr>
+            <td>Average</td>
+            <td>Red Eyes</td>
+        </tr>
+        <tr>
+            <td>Males</td>
+            <td>1.9</td>
+            <td>0.003</td>
+            <td>40%</td>
+        </tr>
+        <tr>
+            <td>Females</td>
+            <td>1.7</td>
+            <td>0.002</td>
+            <td>43%</td>
+        </tr>
+    </table>
+    <hr>
+    <h2>Nested table</h2>
+    <table border="2" height="200px" width="300px" cellpadding="10px">
+        <tr>
+            <td>table 1</td>
+            <td>
+                <center>table 1</center>
+                <table border="2" bordercolor="blue" height="200px" width="200px">
+                    <tr>
+                        
+                            <td align="center" >table 2</td>
+                        
+                            <td align="center">table 2</td>
+                        
+                    </tr>
+                    <tr>
+                        
+                            <td align="center">table 2</td>
+                        
+                            <td align="center">table 2</td>
+                        
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>table 1</td>
+            <td>
+                <center>table 1
+            </td>
+            </center>
+        </tr>
+    </table>
+    <hr>
+    <h2>Time Table</h2>
+    <table border="1" cellpadding="10px">
+        <tr>
+            <th>Day/Period</th>
+            <th>I 9:30-10:20</th>
+            <th>II 10:20-11:10</th>
+            <th>III 12:-12:40</th>
+            <th>12:00-12:40</th>
+            <th>Iv 12:40-1:30</th>
+            <th>V 1:30-2:20</th>
+            <th>VI 2:20-3:10</th>
+            <th>VII 3:10-4:00</th>
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td>Eng</td>
+            <td>Mat</td>
+            <td>Che</td>
+            <td rowspan="5">Lunch</td>
+            <td colspan="3">LAB</td>
+            <td>Phy</td>
+        </tr>
+        <tr>
+            <td>Tuesday</td>
+            <td colspan="3">LAB</td>
+            <td>Eng</td>
+            <td>Che</td>
+            <td>Mat</td>
+            <td>Sports</td>
+        </tr>
+        <tr>
+            <td>Wednesday</td>
+            <td>Mat</td>
+            <td>Phy</td>
+            <td>Eng</td>
+            <td>Che</td>
+            <td colspan="3">Library</td>
+        </tr>
+        <tr>
+            <td>Thursday</td>
+            <td>Phy</td>
+            <td>Eng</td>
+            <td>Che</td>
+            <td colspan="3">Lab</td>
+            <td>Mat</td>
+        </tr>
+        <tr>
+            <td>Friday</td>
+            <td>Phy</td>
+            <td>Eng</td>
+            <td>Che</td>
+            <td colspan="3">Lab</td>
+            <td>Mat</td>
+        </tr>
+    </table>
+</body>
+
+</html>

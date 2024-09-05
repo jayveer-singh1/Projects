@@ -1,0 +1,18 @@
+.MainContaint{
+    position: absolute;
+    top: 100px;
+    left: 290px;
+    width: 1206px;
+    height: 580px;
+    padding: 20px;
+    
+}
+.para{
+    font-size: 16px;
+}
+.btn{
+    margin: 20px 0px;
+}
+.headingh3{
+    margin: 18px 0px;
+}

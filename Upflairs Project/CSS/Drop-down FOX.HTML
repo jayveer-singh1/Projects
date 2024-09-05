@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop-down</title>
+    <style>
+        .box1 {
+            width: 100%;
+            height: 70px;
+            background-color: blue;
+            padding-top: 20px;
+        }
+
+        .box2 {
+            width: 100%;
+            height: 50px;
+            background-color: darkblue;
+        }
+
+        .ul1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 0px;
+            padding: 15px;
+            color: white;
+            list-style-type: none;
+        }
+
+        .li-child {
+            display: none;
+            position: absolute;
+            left: -20px;
+            top: 20px;
+            background-color: darkblue;
+            color: white;
+            list-style-type: none;
+            width: 150px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px 1px grey;
+        }
+
+        .li-perant {
+            position: relative;
+
+        }
+
+        .li-perant:hover .li-child {
+            display: block;
+        }
+        .li-perant:hover{
+            color: yellow;
+            background-color:rgb(2, 2, 45) ;
+            border-radius: 10px;
+            padding: 1px;
+        }
+        .li-child-item:hover{
+            color: yellow;
+            background-color: rgb(2, 2, 45);
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2">
+            <ul class="ul1">
+                <li>About</li>
+                <li class="li-perant">Services
+                    <ul class="li-child">
+                        <li class="li-child-item">Web Development</li>
+                        <br>
+                        <li class="li-child-item">Word Press</li>
+                        <br>
+                        <li class="li-child-item">Graphics Design</li>
+                        <br>
+                        <li class="li-child-item">Icon Design</li>
+                        <br>
+                        <li class="li-child-item">Motion Graphics</li>
+                    </ul>
+                </li>
+                <li>Works</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

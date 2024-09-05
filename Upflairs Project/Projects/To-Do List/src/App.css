@@ -1,0 +1,55 @@
+* {
+    background-color: rgb(193, 90, 90);
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2{
+    margin: 20px 0px;
+}
+.addbtn {
+    background-color: black;
+    box-shadow: none;
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.inputText {
+    height: 35px;
+    width: 300px;
+    background-color: azure;
+    border-radius: 15px;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+.box-1 {
+    margin-top: 30px;
+    margin-left: 600px;
+}
+
+.btn{
+    margin: 0px 10px;
+}
+
+.underline{
+    width: 500px;
+    margin: 10px;
+}
+
+.checkbtn{
+    height: 25px;
+    width: 25px;
+}
+
+.todoData{
+    font-size: 30px;
+}
